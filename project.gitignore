@@ -1,0 +1,22 @@
+# React Native
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Android
+/android/.gradle/
+/android/app/build/
+/android/build/
+/android/local.properties
+
+# iOS
+/ios/build/
+/ios/Pods/
+
+# Misc
+.expo/
+.env
+.DS_Store
+
+# VS Code
+.vscode/

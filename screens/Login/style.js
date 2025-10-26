@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { horizontalScale } from '../../assets/styles/scaling';
+import {
+  verticalScale,
+  horizontalScale,
+  scaleFontSize,
+} from '../../assets/styles/scaling';
+import { getFontFamily } from '../../Helper/helper';
 
 const style = StyleSheet.create({
   container: {
@@ -9,6 +14,12 @@ const style = StyleSheet.create({
   },
   registry: {
     alignItems: 'center',
+  },
+  error: {
+    color: 'red',
+    fontFamily: getFontFamily('Inter', '500'),
+    fontSize: scaleFontSize(16),
+    marginBottom: verticalScale(24),
   },
 });
 

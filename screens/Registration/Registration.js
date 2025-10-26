@@ -19,7 +19,7 @@ const Registration = ({ navigation }) => {
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   return (
-    <SafeAreaView style={(globalStyle.BackgroundWhite, globalStyle.flex)}>
+    <SafeAreaView style={[globalStyle.BackgroundWhite, globalStyle.flex]}>
       <View style={style.backButton}>
         <BackButton onPress={() => navigation.goBack()} />
       </View>
@@ -74,13 +74,13 @@ const Registration = ({ navigation }) => {
             onPress={async () => {
               // console.log('Credentials', email, password, fullName);
               console.log('Registration pressed');
-              const user = await createUser(fullName, email, password);
+              let user = await createUser(fullName, email, password);
               if (user.error) {
                 setError(user.error);
               } else {
                 setError('');
-                setSuccess('User created successfully');
-                setTimeout(() => navigation.goBack(), 3000);
+                setSuccess('You have successfully registered');
+                setTimeout(() => navigation.goBack(), setSuccess(''), 3000);
               }
             }}
           />

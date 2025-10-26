@@ -40,6 +40,15 @@ export const loginUser = async (email, password) => {
       },
     };
   } catch (error) {
-    return { status: false, error: error.message };
+    if (error.code === 'auth/wrong-password') {
+      return { status: false, error: 'Please enter a correct password' };
+    } else if (error.code === 'auth/user-not-found') {
+      return {
+        status: false,
+        error:
+          'The email you entered does not exist. Please create a new account.',
+      };
+    }
+    return { status: false, error: 'Something went wrong' };
   }
 };

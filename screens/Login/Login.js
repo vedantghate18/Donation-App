@@ -41,8 +41,8 @@ const Login = ({ navigation }) => {
             secureTextEntry={true}
           />
         </View>
+        {error.length > 0 && <Text style={style.error}>{error}</Text>}
         <View style={globalStyle.marginBotom24}>
-          {error.length > 0 && <Text style={style.error}>{error}</Text>}
           <Button
             onPress={async () => {
               let user = await loginUser(email, Password);

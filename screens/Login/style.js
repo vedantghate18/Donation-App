@@ -16,7 +16,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   error: {
-    color: 'red',
+    color: '#FF0000',
     fontFamily: getFontFamily('Inter', '500'),
     fontSize: scaleFontSize(16),
     marginBottom: verticalScale(24),

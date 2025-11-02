@@ -64,7 +64,9 @@ const Registration = ({ navigation }) => {
           />
         </View>
         {error.length > 0 && <Text style={style.error}>{error}</Text>}
+        {console.log(error)}
         {success.length > 0 && <Text style={style.success}>{success}</Text>}
+        {console.log(success)}
         <View style={globalStyle.marginBotom24}>
           <Button
             isDisabled={
@@ -74,13 +76,28 @@ const Registration = ({ navigation }) => {
             onPress={async () => {
               // console.log('Credentials', email, password, fullName);
               console.log('Registration pressed');
-              let user = await createUser(fullName, email, password);
-              if (user.error) {
-                setError(user.error);
-              } else {
-                setError('');
-                setSuccess('You have successfully registered');
-                setTimeout(() => navigation.goBack(), setSuccess(''), 3000);
+
+              try {
+                let user = await createUser(fullName, email, password);
+
+                if (user?.error) {
+                  setError(user.error);
+                  setSuccess('');
+                  console.log('Error:', user.error);
+                } else {
+                  setError('');
+                  setSuccess('✅ You have successfully registered!');
+                  console.log('Success: You have successfully registered!');
+
+                  // Navigate after a short delay
+                  setTimeout(() => {
+                    setSuccess('');
+                    navigation.navigate(Routes.Login);
+                  }, 2000);
+                }
+              } catch (err) {
+                console.log('Unexpected error:', err);
+                setError('Something went wrong, please try again.');
               }
             }}
           />

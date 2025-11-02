@@ -20,13 +20,13 @@ const style = StyleSheet.create({
     marginTop: verticalScale(7),
   },
   error: {
-    color: 'red',
+    color: '#FF0000',
     fontFamily: getFontFamily('Inter', '500'),
     fontSize: scaleFontSize(16),
     marginBottom: verticalScale(24),
   },
   success: {
-    color: 'green',
+    color: '#008000',
     fontFamily: getFontFamily('Inter', '500'),
     fontSize: scaleFontSize(16),
     marginBottom: verticalScale(24),

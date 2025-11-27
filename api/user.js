@@ -8,7 +8,10 @@ export const createUser = async (fullName, email, password) => {
   console.log('Creating user with:', fullName, email);
 
   createUserWithEmailAndPassword(getAuth(), email, password)
-    .then(() => {})
+    .then(response => {
+      response.user.updateProfile({ displayName: fullName });
+      return { status: true };
+    })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
         console.log('That email address is already in use!');

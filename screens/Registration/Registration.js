@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Input from '../../components/Input/Input';
-import { Pressable, View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import style from './style';
 import globalStyle from '../../assets/styles/globalStyle';

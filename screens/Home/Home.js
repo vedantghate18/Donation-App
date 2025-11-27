@@ -9,7 +9,6 @@ import Tab from '../../components/Tab/Tab';
 import Search from '../../components/SearchBar/Search';
 import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetToInitialState } from '../../redux/reducers/User';
 import { FlatList } from 'react-native-gesture-handler';
 import { updateSelectCategoryId } from '../../redux/reducers/Categories';
 import { updateSelectedDonationsId } from '../../redux/reducers/Donations';
@@ -20,6 +19,7 @@ const Home = ({ navigation }) => {
   const categories = useSelector(state => state.categories);
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
+  console.log(user);
 
   const [donationItems, setDonationItems] = useState([]);
   const [categoryPage, setCategoryPage] = useState(1);
@@ -53,9 +53,9 @@ const Home = ({ navigation }) => {
     return items.slice(startIndex, endIndex);
   };
 
-  useEffect(() => {
-    dispatch(resetToInitialState());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(resetToInitialState());
+  // }, [dispatch]);
 
   return (
     <SafeAreaView style={globalStyle.BackgroundWhite}>
@@ -64,9 +64,7 @@ const Home = ({ navigation }) => {
           <View>
             <Text style={style.headerIntroText}>Hello</Text>
             <View style={style.headerMain}>
-              <Header
-                title={user.firstName + ' ' + user.lastName + '.' + '👋'}
-              />
+              <Header title={user.displayName + ' 👋'} />
             </View>
           </View>
           <Image

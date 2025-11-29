@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { getFontFamily } from './Helper/helper';
-import MainNavigation from './navigation/mainNavigation';
+import RootNavigation from './navigation/RootNavigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import Store from './redux/Store';
@@ -14,7 +14,7 @@ const App = () => {
     <Provider store={Store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <MainNavigation></MainNavigation>
+          <RootNavigation />
         </NavigationContainer>
       </PersistGate>
     </Provider>

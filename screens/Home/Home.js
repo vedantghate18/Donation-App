@@ -13,6 +13,8 @@ import { FlatList } from 'react-native-gesture-handler';
 import { updateSelectCategoryId } from '../../redux/reducers/Categories';
 import { updateSelectedDonationsId } from '../../redux/reducers/Donations';
 import { Routes } from '../../navigation/Routes';
+import { resetToInitialState } from '../../redux/reducers/User';
+import { logoutUser } from '../../api/user';
 
 const Home = ({ navigation }) => {
   const donations = useSelector(state => state.donations);
@@ -67,11 +69,21 @@ const Home = ({ navigation }) => {
               <Header title={user.displayName + ' 👋'} />
             </View>
           </View>
-          <Image
-            source={{ uri: user.profileImage }}
-            style={style.profileImage}
-            resizeMode={'contain'}
-          />
+          <View>
+            <Image
+              source={{ uri: user.profileImage }}
+              style={style.profileImage}
+              resizeMode={'contain'}
+            />
+            <Pressable
+              onPress={async () => {
+                dispatch(resetToInitialState());
+                await logoutUser();
+              }}
+            >
+              <Header title={'Logout'} type={3} color={'#1566CF7'} />
+            </Pressable>
+          </View>
         </View>
         <View style={style.searchBox}>
           <Search />

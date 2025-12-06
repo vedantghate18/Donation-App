@@ -81,7 +81,7 @@ const Home = ({ navigation }) => {
                 await logoutUser();
               }}
             >
-              <Header title={'Logout'} type={3} color={'#1566CF7'} />
+              <Header title={'Logout'} type={3} color={'#156CF7'} />
             </Pressable>
           </View>
         </View>
